@@ -152,18 +152,18 @@ export default function FeedScreen() {
       translateY.value = event.translationY;
     })
     .onEnd((event) => {
-      const threshold = SCREEN_HEIGHT * 0.2;
+      const threshold = SCREEN_HEIGHT * 0.25;
       
-      if (event.translationY < -threshold && currentIndex > 0) {
-        // Swipe up - previous post
-        translateY.value = withSpring(SCREEN_HEIGHT, {}, () => {
-          runOnJS(setCurrentIndex)(currentIndex - 1);
-          translateY.value = 0;
-        });
-      } else if (event.translationY > threshold && currentIndex < posts.length - 1) {
-        // Swipe down - next post
+      if (event.translationY < -threshold && currentIndex < posts.length - 1) {
+        // Swipe up - next post (like TikTok)
         translateY.value = withSpring(-SCREEN_HEIGHT, {}, () => {
           runOnJS(setCurrentIndex)(currentIndex + 1);
+          translateY.value = 0;
+        });
+      } else if (event.translationY > threshold && currentIndex > 0) {
+        // Swipe down - previous post
+        translateY.value = withSpring(SCREEN_HEIGHT, {}, () => {
+          runOnJS(setCurrentIndex)(currentIndex - 1);
           translateY.value = 0;
         });
       } else {
@@ -239,25 +239,30 @@ export default function FeedScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: THEME.colors.background,
+    backgroundColor: '#000000',
   },
   tabBar: {
     flexDirection: 'row',
     paddingTop: 50,
-    paddingHorizontal: THEME.spacing.sm,
-    paddingBottom: THEME.spacing.sm,
-    backgroundColor: THEME.colors.surface,
+    paddingHorizontal: THEME.spacing.xs,
+    paddingBottom: THEME.spacing.md,
+    backgroundColor: 'rgba(10, 10, 10, 0.95)',
     borderBottomWidth: 1,
-    borderBottomColor: '#333',
+    borderBottomColor: 'rgba(255, 107, 53, 0.1)',
+    backdropFilter: 'blur(10px)',
   },
   tab: {
     flex: 1,
     paddingVertical: THEME.spacing.sm,
+    paddingHorizontal: THEME.spacing.xs,
     alignItems: 'center',
-    borderRadius: THEME.borderRadius.sm,
+    borderRadius: THEME.borderRadius.md,
+    marginHorizontal: 2,
   },
   activeTab: {
-    backgroundColor: THEME.colors.flame.spicy,
+    backgroundColor: 'rgba(255, 107, 53, 0.2)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 107, 53, 0.5)',
   },
   tabText: {
     fontSize: THEME.typography.sizes.xs,
@@ -299,13 +304,17 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 30,
     right: 30,
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+    width: 64,
+    height: 64,
+    borderRadius: 32,
     backgroundColor: THEME.colors.flame.inferno,
     justifyContent: 'center',
     alignItems: 'center',
-    ...THEME.shadows.lg,
+    shadowColor: '#FF2E2E',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.5,
+    shadowRadius: 16,
+    elevation: 8,
   },
   fabText: {
     color: THEME.colors.text.primary,

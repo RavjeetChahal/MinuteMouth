@@ -56,7 +56,7 @@ export function FeedCard({ post, onFlame, onSuperFlame }: FeedCardProps) {
       
       <Animated.View style={[styles.card, animatedScaleStyle]}>
         <LinearGradient
-          colors={['#1A1A1A', '#000000']}
+          colors={['rgba(26, 26, 46, 0.95)', 'rgba(15, 52, 96, 0.85)', 'rgba(10, 10, 10, 0.95)']}
           style={styles.gradient}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
@@ -115,9 +115,16 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     margin: 20,
-    borderRadius: THEME.borderRadius.xl,
+    borderRadius: THEME.borderRadius.xxl,
     overflow: 'hidden',
     zIndex: 1,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 107, 53, 0.2)',
+    shadowColor: '#FF6B35',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.4,
+    shadowRadius: 24,
+    elevation: 10,
   },
   gradient: {
     flex: 1,
@@ -131,9 +138,12 @@ const styles = StyleSheet.create({
     marginBottom: THEME.spacing.md,
   },
   categoryBadge: {
-    paddingHorizontal: THEME.spacing.sm,
+    paddingHorizontal: THEME.spacing.md,
     paddingVertical: THEME.spacing.xs,
-    borderRadius: THEME.borderRadius.sm,
+    borderRadius: THEME.borderRadius.full,
+    backgroundColor: 'rgba(255, 107, 53, 0.15)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 107, 53, 0.3)',
   },
   categoryText: {
     fontSize: THEME.typography.sizes.xs,
@@ -141,9 +151,11 @@ const styles = StyleSheet.create({
     color: THEME.colors.text.primary,
   },
   heatBadge: {
-    paddingHorizontal: THEME.spacing.sm,
+    paddingHorizontal: THEME.spacing.md,
     paddingVertical: THEME.spacing.xs,
-    borderRadius: THEME.borderRadius.sm,
+    borderRadius: THEME.borderRadius.full,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
   },
   heatText: {
     fontSize: THEME.typography.sizes.xs,
@@ -167,10 +179,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    marginTop: THEME.spacing.md,
-    paddingTop: THEME.spacing.md,
+    marginTop: THEME.spacing.lg,
+    paddingTop: THEME.spacing.lg,
+    paddingHorizontal: THEME.spacing.xl,
     borderTopWidth: 1,
-    borderTopColor: THEME.colors.surface,
+    borderTopColor: 'rgba(255, 107, 53, 0.15)',
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    borderRadius: THEME.borderRadius.xl,
   },
   flameContainer: {
     flexDirection: 'row',

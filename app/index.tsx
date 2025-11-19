@@ -8,8 +8,9 @@ export default function HomeScreen() {
 
   return (
     <LinearGradient
-      colors={['#000000', '#1A1A1A', '#000000']}
+      colors={['#0A0A0A', '#1A1A2E', '#0F3460', '#16213E']}
       style={styles.container}
+      locations={[0, 0.3, 0.7, 1]}
     >
       <View style={styles.content}>
         <Text style={styles.title}>MinuteMouth</Text>
@@ -88,17 +89,21 @@ const styles = StyleSheet.create({
     padding: THEME.spacing.xl,
   },
   title: {
-    fontSize: THEME.typography.sizes.xxxl,
+    fontSize: 48,
     fontWeight: THEME.typography.weights.bold,
     color: THEME.colors.text.primary,
     marginBottom: THEME.spacing.sm,
     textAlign: 'center',
+    textShadowColor: 'rgba(255, 107, 53, 0.3)',
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 12,
   },
   subtitle: {
     fontSize: THEME.typography.sizes.lg,
-    color: THEME.colors.text.secondary,
+    color: 'rgba(255, 255, 255, 0.7)',
     marginBottom: THEME.spacing.xxl,
     textAlign: 'center',
+    letterSpacing: 1,
   },
   buttonContainer: {
     width: '100%',
@@ -106,11 +111,16 @@ const styles = StyleSheet.create({
     gap: THEME.spacing.md,
   },
   button: {
-    borderRadius: THEME.borderRadius.lg,
+    borderRadius: THEME.borderRadius.xl,
     overflow: 'hidden',
+    shadowColor: '#FF6B35',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.3,
+    shadowRadius: 12,
+    elevation: 5,
   },
   buttonGradient: {
-    paddingVertical: THEME.spacing.md,
+    paddingVertical: THEME.spacing.lg,
     paddingHorizontal: THEME.spacing.xl,
     alignItems: 'center',
     justifyContent: 'center',

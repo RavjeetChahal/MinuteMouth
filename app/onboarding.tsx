@@ -51,8 +51,9 @@ export default function OnboardingScreen() {
 
   return (
     <LinearGradient
-      colors={['#000000', '#1A1A1A', '#881C1C']}
+      colors={['#0A0A0A', '#1A1A2E', '#0F3460', '#16213E']}
       style={styles.container}
+      locations={[0, 0.3, 0.7, 1]}
     >
       <View style={styles.content}>
         <Text style={styles.title}>Welcome to MinuteMouth</Text>
@@ -117,6 +118,9 @@ const styles = StyleSheet.create({
     color: THEME.colors.text.primary,
     textAlign: 'center',
     marginBottom: THEME.spacing.md,
+    textShadowColor: 'rgba(255, 107, 53, 0.3)',
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 12,
   },
   subtitle: {
     fontSize: THEME.typography.sizes.lg,
@@ -135,13 +139,17 @@ const styles = StyleSheet.create({
     marginBottom: THEME.spacing.sm,
   },
   aliasCard: {
-    backgroundColor: THEME.colors.surface,
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
     paddingVertical: THEME.spacing.xl,
     paddingHorizontal: THEME.spacing.lg,
-    borderRadius: THEME.borderRadius.lg,
-    borderWidth: 2,
-    borderColor: THEME.colors.flame.inferno,
-    ...THEME.shadows.lg,
+    borderRadius: THEME.borderRadius.xl,
+    borderWidth: 1.5,
+    borderColor: 'rgba(255, 107, 53, 0.4)',
+    shadowColor: '#FF6B35',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.3,
+    shadowRadius: 16,
+    elevation: 8,
   },
   aliasText: {
     fontSize: 32,
@@ -152,15 +160,29 @@ const styles = StyleSheet.create({
   rollButton: {
     width: '100%',
     marginBottom: THEME.spacing.md,
+    borderRadius: THEME.borderRadius.xl,
+    overflow: 'hidden',
+    shadowColor: '#FFB84D',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 4,
   },
   confirmButton: {
     width: '100%',
     marginBottom: THEME.spacing.xl,
+    borderRadius: THEME.borderRadius.xl,
+    overflow: 'hidden',
+    shadowColor: '#FF6B35',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.4,
+    shadowRadius: 12,
+    elevation: 6,
   },
   buttonGradient: {
-    paddingVertical: THEME.spacing.md,
+    paddingVertical: THEME.spacing.lg,
     paddingHorizontal: THEME.spacing.lg,
-    borderRadius: THEME.borderRadius.md,
+    borderRadius: THEME.borderRadius.xl,
     alignItems: 'center',
   },
   rollButtonText: {
