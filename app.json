@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "MinuteMouth",
+    "slug": "minutemouth",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.minutemouth.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#000000"
+      },
+      "package": "com.minutemouth.app"
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "scheme": "minutemouth",
+    "plugins": [
+      "expo-router"
+    ]
+  }
+}
